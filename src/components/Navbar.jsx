@@ -1,7 +1,16 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { signOut, useSession } from "@/lib/auth-client";
 
 const Navbar = () => {
+  const { data, isPending } = useSession();
+
+  if (isPending) {
+    return <div>Loading...</div>;
+  }
+  console.log("Session data in Navbar:", data);
+
+  const userData = data?.user;
   return (
     <div className="navbar container mx-auto px-4 bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -59,9 +68,20 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link href="/auth/signin" className="btn ml-2">
-          Log In
-        </Link>
+        {userData ? (
+          <>
+            <span className="mr-4 p-2">Welcome, {userData.name}!</span>
+            <button onClick={() => signOut()} className="btn px-4">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/auth/signin" className="btn ml-2">
+              Log In
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
