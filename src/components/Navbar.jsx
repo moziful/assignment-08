@@ -28,33 +28,33 @@ const Navbar = () => {
             className="font-semibold menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a>Courses</a>
+              <Link href="/courses">Courses</Link>
             </li>
             <li>
-              <a>My Profile</a>
+              <Link href="/profile">My Profile</Link>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <Link href="/" className="btn btn-ghost text-xl">
           <div className="flex gap-0 text-2xl font-bold">
             <span className="text-black">Skill</span>
             <span className="text-purple-800">Sphere</span>
           </div>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="font-semibold menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a>Courses</a>
+            <Link href="/courses">Courses</Link>
           </li>
           <li>
-            <a>My Profile</a>
+            <Link href="/profile">My Profile</Link>
           </li>
         </ul>
       </div>
