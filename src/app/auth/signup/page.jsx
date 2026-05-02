@@ -1,13 +1,36 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 
 const SignUpPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const { data, error } = await authClient.signUp.email({
+      name,
+      email,
+      password,
+      callbackURL: "/",
+    });
+    console.log("User created:", error, data);
+  };
   return (
     <div className="flex flex-col h-[90vh] justify-center items-center">
-      <form className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+      <form
+        onSubmit={onSubmit}
+        className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+      >
         <fieldset className="fieldset">
           <label className="label">Name</label>
           <input
             type="text"
+            name="name"
             className="input validator"
             placeholder="Name"
             required
@@ -18,6 +41,7 @@ const SignUpPage = () => {
           <label className="label">Email</label>
           <input
             type="email"
+            name="email"
             className="input validator"
             placeholder="Email"
             required
@@ -29,6 +53,7 @@ const SignUpPage = () => {
           <span className="label">Password</span>
           <input
             type="password"
+            name="password"
             className="input validator"
             placeholder="Password"
             required
@@ -37,7 +62,7 @@ const SignUpPage = () => {
         </label>
 
         <button className="btn btn-neutral mt-4" type="submit">
-          Login
+          Sign Up
         </button>
         <button className="btn mt-1" type="reset">
           Reset

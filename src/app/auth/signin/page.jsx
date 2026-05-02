@@ -1,13 +1,37 @@
+"use client";
+import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 
 const SignInPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(formData.entries());
+
+    const email = userData.email;
+    const password = userData.password;
+
+    const { data, error } = await authClient.signIn.email({
+      email,
+      password,
+      rememberMe: true,
+      callbackURL: "/",
+    });
+    console.log(error, data);
+  };
   return (
     <div className="flex flex-col h-[90vh] justify-center items-center">
-      <form className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+      <form
+        onSubmit={onSubmit}
+        className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+      >
         <fieldset className="fieldset">
           <label className="label">Email</label>
           <input
             type="email"
+            name="email"
             className="input validator"
             placeholder="Email"
             required
@@ -19,6 +43,7 @@ const SignInPage = () => {
           <span className="label">Password</span>
           <input
             type="password"
+            name="password"
             className="input validator"
             placeholder="Password"
             required
