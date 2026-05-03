@@ -1,11 +1,12 @@
 "use client";
+import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 
 const SignInPage = () => {
+  const [errorMessage, setErrorMessage] = useState(null);
   const onSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
 
@@ -18,14 +19,23 @@ const SignInPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
-    console.log(error, data);
+
+    if (error) {
+      setErrorMessage(error);
+      return;
+    }
+
+    console.log(data);
   };
   return (
-    <div className="flex flex-col h-[90vh] justify-center items-center">
+    <div className="flex flex-col my-8 sm:h-[90vh] justify-center items-center">
       <form
         onSubmit={onSubmit}
         className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
       >
+        <h3 className="border-b-2 font-bold text-2xl text-center py-2">
+          Log In to SkillSphere
+        </h3>
         <fieldset className="fieldset">
           <label className="label">Email</label>
           <input
@@ -37,9 +47,8 @@ const SignInPage = () => {
           />
           <p className="validator-hint hidden">Required</p>
         </fieldset>
-
-        <label className="fieldset">
-          <span className="label">Password</span>
+        <fieldset className="fieldset">
+          <label className="label">Password</label>
           <input
             type="password"
             name="password"
@@ -47,9 +56,13 @@ const SignInPage = () => {
             placeholder="Password"
             required
           />
-          <span className="validator-hint hidden">Required</span>
-        </label>
-
+          <p className="validator-hint hidden">Required</p>
+        </fieldset>
+        <p
+          className={`border-2 py-2 rounded-md border-red-500 bg-red-400 text-white font-bold text-center ${errorMessage ? "block" : "hidden"}`}
+        >
+          {errorMessage?.message}
+        </p>
         <button className="btn btn-neutral mt-4" type="submit">
           Login
         </button>

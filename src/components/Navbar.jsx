@@ -49,7 +49,7 @@ const Navbar = () => {
         </div>
         <Link href="/" className="btn btn-ghost text-xl">
           <div className="flex gap-0 text-2xl font-bold">
-            <span className="text-black">Skill</span>
+            <span>Skill</span>
             <span className="text-purple-800">Sphere</span>
           </div>
         </Link>
