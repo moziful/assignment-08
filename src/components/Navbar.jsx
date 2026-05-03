@@ -1,18 +1,23 @@
 "use client";
 import Link from "next/link";
 import { signOut, useSession } from "@/lib/auth-client";
+import Image from "next/image";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-ring loading-lg"></span>
+      </div>
+    );
   }
   console.log("Session data in Navbar:", data);
 
   const userData = data?.user;
   return (
-    <div className="navbar container mx-auto px-4 bg-base-100 shadow-sm">
+    <div className="navbar container mx-auto px-4 bg-base-100 shadow-sm xl:rounded-lg xl:mt-2">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost text-xl">
-          <div className="flex gap-0 text-2xl font-bold">
+          <div className="flex gap-0 text-xl md:text-2xl font-bold">
             <span>Skill</span>
             <span className="text-purple-800">Sphere</span>
           </div>
@@ -70,7 +75,15 @@ const Navbar = () => {
       <div className="navbar-end">
         {userData ? (
           <>
-            <span className="mr-4 p-2">Welcome, {userData.name}!</span>
+            <span className="mr-1">
+              <Image
+                src={userData.image || "/fallback-avatar.png"}
+                alt="Profile"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+            </span>
             <button onClick={() => signOut()} className="btn px-4">
               Log Out
             </button>

@@ -13,11 +13,13 @@ const SignUpPage = () => {
     const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
+    const image = formData.get("image");
 
     const { data, error } = await authClient.signUp.email({
       name,
       email,
       password,
+      image,
       callbackURL: "/",
     });
     console.log(error, data);
@@ -71,7 +73,7 @@ const SignUpPage = () => {
           <label className="label">Photo URL</label>
           <input
             type="text"
-            name="photoUrl"
+            name="image"
             className="input validator"
             placeholder="Photo URL"
             required
