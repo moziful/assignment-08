@@ -2,16 +2,13 @@
 import Link from "next/link";
 import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
+import Loader from "@/components/Loader";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
 
   if (isPending) {
-    return (
-      <div className="flex justify-center items-center">
-        <span className="loading loading-ring loading-lg"></span>
-      </div>
-    );
+    return <Loader />;
   }
   console.log("Session data in Navbar:", data);
 

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { useSession } from "@/lib/auth-client";
+import Loader from "@/components/Loader";
 import courses from "@/data/courses.json";
 
 const curriculum = [
@@ -27,11 +28,7 @@ export default function CourseDetailsPage() {
   }, [isPending, user, router, params.id]);
 
   if (isPending || !user) {
-    return (
-      <div className="flex min-h-[60vh] items-center justify-center px-4">
-        <span className="loading loading-ring loading-lg text-purple-800" />
-      </div>
-    );
+    return <Loader />;
   }
   return (
     <section className="bg-gray-100 px-4 py-8 sm:px-6 lg:px-8">
