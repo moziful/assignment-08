@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -31,12 +32,14 @@ const SignInPage = () => {
 
     if (error) {
       setErrorMessage(error);
+      toast.error(error?.message || "Sign in failed");
       return;
     }
 
-    console.log(data);
+    toast.success("Signed in successfully");
     router.push(callbackUrl);
   };
+
   return (
     <div className="flex flex-col my-8 sm:h-[90vh] justify-center items-center">
       <form

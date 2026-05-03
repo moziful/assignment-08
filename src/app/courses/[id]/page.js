@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import { useSession } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 import Loader from "@/components/Loader";
 import courses from "@/data/courses.json";
 
@@ -18,11 +19,14 @@ const curriculum = [
 export default function CourseDetailsPage() {
   const params = useParams();
   const router = useRouter();
+  const redirectToastShown = useRef(false);
   const { data, isPending } = useSession();
   const user = data?.user;
   const course = courses.find((item) => String(item.id) === String(params.id));
   useEffect(() => {
-    if (!isPending && !user) {
+    if (!isPending && !user && !redirectToastShown.current) {
+      redirectToastShown.current = true;
+      toast.info("Please log in to view course details");
       router.replace(`/auth/signin?callbackUrl=/courses/${params.id}`);
     }
   }, [isPending, user, router, params.id]);

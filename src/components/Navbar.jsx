@@ -3,6 +3,7 @@ import Link from "next/link";
 import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Loader from "@/components/Loader";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
@@ -81,7 +82,13 @@ const Navbar = () => {
                 className="rounded-full"
               />
             </span>
-            <button onClick={() => signOut()} className="btn px-4">
+            <button
+              onClick={() => {
+                toast.success("Logged out successfully");
+                signOut();
+              }}
+              className="btn px-4"
+            >
               Log Out
             </button>
           </>

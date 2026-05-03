@@ -2,9 +2,12 @@
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,8 +28,14 @@ const SignUpPage = () => {
     console.log(error, data);
     if (error) {
       setErrorMessage(error);
+      toast.error(error?.message || "Sign up failed");
+      return;
     }
+
+    toast.success("Account created successfully");
+    router.push("/auth/signin");
   };
+
   return (
     <div className="flex flex-col my-8 sm:h-[90vh] justify-center items-center">
       <form
