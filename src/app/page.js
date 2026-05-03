@@ -1,15 +1,10 @@
 import HeroSection from "@/components/HeroSection";
 import PopularCourses from "@/components/PopularCourses";
-import fs from "fs/promises";
-import path from "path";
+import courses from "../../public/courses.json";
 
-export default async function Home() {
-  const filePath = path.join(process.cwd(), "public", "courses.json");
-  const coursesData = await fs.readFile(filePath, "utf8");
-  const courses = JSON.parse(coursesData);
-
+export default function Home() {
   return (
-    <div className="bg-zinc-50">
+    <div className="bg-gray-100">
       <HeroSection />
       <PopularCourses courses={courses} />
     </div>
