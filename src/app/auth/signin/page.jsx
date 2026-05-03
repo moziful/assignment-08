@@ -1,10 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SignInPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
+  useEffect(() => {
+    setErrorMessage(null);
+  }, [callbackUrl]);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -17,7 +26,7 @@ const SignInPage = () => {
       email,
       password,
       rememberMe: true,
-      callbackURL: "/",
+      callbackURL: callbackUrl,
     });
 
     if (error) {
@@ -26,6 +35,7 @@ const SignInPage = () => {
     }
 
     console.log(data);
+    router.push(callbackUrl);
   };
   return (
     <div className="flex flex-col my-8 sm:h-[90vh] justify-center items-center">
