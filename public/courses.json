@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch using HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
+    "image": "https://i.postimg.cc/0N8F9Y2w/web-dev-course.png",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design Masterclass",
+    "instructor": "Sarah Johnson",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Master modern UI and UX design principles using Figma and real-world projects.",
+    "image": "https://i.postimg.cc/fW1g1n7v/uiux-course.png",
+    "category": "Design"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Essentials",
+    "instructor": "Michael Brown",
+    "duration": "12 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Understand SEO, social media marketing, email campaigns, and branding strategies.",
+    "image": "https://i.postimg.cc/J4y5QW4M/marketing-course.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "React & Next.js Advanced Guide",
+    "instructor": "Emily Carter",
+    "duration": "18 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Build production-ready applications using React, Next.js App Router, and Tailwind CSS.",
+    "image": "https://i.postimg.cc/Hx4YtM7L/react-next-course.png",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Graphic Design Fundamentals",
+    "instructor": "David Wilson",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Learn Adobe Photoshop, Illustrator, typography, and branding basics.",
+    "image": "https://i.postimg.cc/Zq7r8v9N/graphic-design-course.png",
+    "category": "Design"
+  },
+  {
+    "id": 6,
+    "title": "Python for Beginners",
+    "instructor": "Sophia Lee",
+    "duration": "14 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Start programming with Python by building beginner-friendly projects and exercises.",
+    "image": "https://i.postimg.cc/jdL1k6xN/python-course.png",
+    "category": "Programming"
+  },
+  {
+    "id": 7,
+    "title": "Data Science with Python",
+    "instructor": "James Anderson",
+    "duration": "22 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Analyze data, create visualizations, and work with machine learning basics using Python.",
+    "image": "https://i.postimg.cc/mgN6xK3x/data-science-course.png",
+    "category": "Data Science"
+  },
+  {
+    "id": 8,
+    "title": "Mobile App Development with Flutter",
+    "instructor": "Olivia Martin",
+    "duration": "16 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Create beautiful cross-platform mobile apps using Flutter and Dart.",
+    "image": "https://i.postimg.cc/3Jz9kX7x/flutter-course.png",
+    "category": "Development"
+  },
+  {
+    "id": 9,
+    "title": "Cybersecurity Basics",
+    "instructor": "Daniel Clark",
+    "duration": "11 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn ethical hacking basics, network security, and online safety practices.",
+    "image": "https://i.postimg.cc/Nj1rW8xT/cybersecurity-course.png",
+    "category": "Security"
+  },
+  {
+    "id": 10,
+    "title": "Video Editing with Premiere Pro",
+    "instructor": "Emma Taylor",
+    "duration": "13 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Edit professional-quality videos using Adobe Premiere Pro and motion graphics basics.",
+    "image": "https://i.postimg.cc/qR7z9rP5/video-editing-course.png",
+    "category": "Editing"
+  }
+]
