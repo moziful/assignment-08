@@ -7,7 +7,7 @@
     "rating": 4.8,
     "level": "Beginner",
     "description": "Learn full-stack web development from scratch using HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
-    "image": "https://i.postimg.cc/0N8F9Y2w/web-dev-course.png",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     "category": "Development"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 4.7,
     "level": "Intermediate",
     "description": "Master modern UI and UX design principles using Figma and real-world projects.",
-    "image": "https://i.postimg.cc/fW1g1n7v/uiux-course.png",
+    "image": "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=800&q=80",
     "category": "Design"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 4.6,
     "level": "Beginner",
     "description": "Understand SEO, social media marketing, email campaigns, and branding strategies.",
-    "image": "https://i.postimg.cc/J4y5QW4M/marketing-course.png",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     "category": "Marketing"
   },
   {
@@ -40,7 +40,7 @@
     "rating": 4.9,
     "level": "Advanced",
     "description": "Build production-ready applications using React, Next.js App Router, and Tailwind CSS.",
-    "image": "https://i.postimg.cc/Hx4YtM7L/react-next-course.png",
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
     "category": "Development"
   },
   {
@@ -51,7 +51,7 @@
     "rating": 4.5,
     "level": "Beginner",
     "description": "Learn Adobe Photoshop, Illustrator, typography, and branding basics.",
-    "image": "https://i.postimg.cc/Zq7r8v9N/graphic-design-course.png",
+    "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
     "category": "Design"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.8,
     "level": "Beginner",
     "description": "Start programming with Python by building beginner-friendly projects and exercises.",
-    "image": "https://i.postimg.cc/jdL1k6xN/python-course.png",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
     "category": "Programming"
   },
   {
@@ -73,7 +73,7 @@
     "rating": 4.9,
     "level": "Intermediate",
     "description": "Analyze data, create visualizations, and work with machine learning basics using Python.",
-    "image": "https://i.postimg.cc/mgN6xK3x/data-science-course.png",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80",
     "category": "Data Science"
   },
   {
@@ -84,7 +84,7 @@
     "rating": 4.7,
     "level": "Intermediate",
     "description": "Create beautiful cross-platform mobile apps using Flutter and Dart.",
-    "image": "https://i.postimg.cc/3Jz9kX7x/flutter-course.png",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
     "category": "Development"
   },
   {
@@ -95,7 +95,7 @@
     "rating": 4.6,
     "level": "Beginner",
     "description": "Learn ethical hacking basics, network security, and online safety practices.",
-    "image": "https://i.postimg.cc/Nj1rW8xT/cybersecurity-course.png",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
     "category": "Security"
   },
   {
@@ -106,7 +106,7 @@
     "rating": 4.5,
     "level": "Beginner",
     "description": "Edit professional-quality videos using Adobe Premiere Pro and motion graphics basics.",
-    "image": "https://i.postimg.cc/qR7z9rP5/video-editing-course.png",
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80",
     "category": "Editing"
   }
 ]
