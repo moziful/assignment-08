@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import PopularCourses from "@/components/PopularCourses";
-import courses from "../../public/courses.json";
+import courses from "@/data/courses.json";
 
 export default function Home() {
   return (

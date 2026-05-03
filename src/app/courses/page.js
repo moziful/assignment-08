@@ -1,5 +1,5 @@
 import AllCourses from "@/components/AllCourses";
-import courses from "../../../public/courses.json";
+import courses from "@/data/courses.json";
 
 export default function CoursesPage() {
   return (
