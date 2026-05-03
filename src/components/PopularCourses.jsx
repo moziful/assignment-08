@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import CourseCard from "@/components/CourseCard";
 
 const PopularCourses = ({ courses }) => {
   const topCourses = [...courses]
@@ -18,36 +17,7 @@ const PopularCourses = ({ courses }) => {
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {topCourses.map((course) => (
-            <div
-              key={course.id}
-              className="card bg-base-100 shadow-sm border border-base-300"
-            >
-              <div className="relative h-56 w-full">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  className="object-cover rounded-tl-lg rounded-tr-lg"
-                />
-              </div>
-              <div className="card-body">
-                <h3 className="card-title text-lg">{course.title}</h3>
-                <p className="text-sm text-base-content/70">
-                  Instructor: {course.instructor}
-                </p>
-                <div className="flex items-center gap-2 text-sm font-semibold text-purple-800">
-                  Rating: {course.rating}
-                </div>
-                <div className="card-actions mt-4">
-                  <Link
-                    href={`/courses/${course.id}`}
-                    className="btn bg-purple-800 text-white font-semibold btn-block"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
       </div>
