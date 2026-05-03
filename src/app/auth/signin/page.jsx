@@ -1,15 +1,20 @@
 "use client";
+
 import { useEffect, useState } from "react";
+import { use } from "react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-const SignInPage = () => {
+export default function SignInPage({ searchParams }) {
   const [errorMessage, setErrorMessage] = useState(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
+  const SearchParamsRes = use(searchParams);
+  const callbackUrl =
+    typeof SearchParamsRes?.callbackUrl === "string"
+      ? SearchParamsRes.callbackUrl
+      : "/";
 
   useEffect(() => {
     setErrorMessage(null);
@@ -23,7 +28,7 @@ const SignInPage = () => {
     const email = userData.email;
     const password = userData.password;
 
-    const { data, error } = await authClient.signIn.email({
+    const { error } = await authClient.signIn.email({
       email,
       password,
       rememberMe: true,
@@ -91,6 +96,4 @@ const SignInPage = () => {
       </form>
     </div>
   );
-};
-
-export default SignInPage;
+}
