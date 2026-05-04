@@ -95,7 +95,13 @@ export default function UpdateProfilePage() {
                   required
                 />
               </div>
-              <button className="btn btn-neutral w-full" type="submit" disabled={isSubmitting}>
+              <button
+                className="btn btn-neutral w-full"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Updating..." : "Update Information"}
+              </button>
             </form>
           </div>
         </ScrollReveal>
