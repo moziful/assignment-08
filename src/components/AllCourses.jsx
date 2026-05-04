@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import { FaTimes } from "react-icons/fa";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const AllCourses = ({ courses }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -60,8 +61,10 @@ const AllCourses = ({ courses }) => {
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {filteredCourses.length > 0 ? (
-            filteredCourses.map((course) => (
-              <CourseCard key={course.id} course={course} />
+            filteredCourses.map((course, index) => (
+              <ScrollReveal key={course.id} delay={index * 0.05}>
+                <CourseCard course={course} />
+              </ScrollReveal>
             ))
           ) : (
             <div className="col-span-full rounded-2xl border border-base-300 bg-base-100 p-8 text-center text-base-content/70">

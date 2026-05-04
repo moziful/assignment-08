@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const tips = [
   {
     title: "Study with a clear goal",
@@ -35,20 +37,19 @@ const LearningTips = () => {
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {tips.map((tip, index) => (
-            <div
-              key={tip.title}
-              className="rounded-xl border border-base-200 bg-white p-6 shadow-sm"
-            >
-              <p className="text-sm font-semibold text-purple-800">
-                Tip {index + 1}
-              </p>
-              <h3 className="mt-2 text-xl font-bold text-base-content">
-                {tip.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-base-content/70">
-                {tip.description}
-              </p>
-            </div>
+            <ScrollReveal key={tip.title} delay={index * 0.08}>
+              <div className="rounded-xl border border-base-200 bg-white p-6 shadow-sm">
+                <p className="text-sm font-semibold text-purple-800">
+                  Tip {index + 1}
+                </p>
+                <h3 className="mt-2 text-xl font-bold text-base-content">
+                  {tip.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-base-content/70">
+                  {tip.description}
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

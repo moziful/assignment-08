@@ -1,4 +1,5 @@
 import CourseCard from "@/components/CourseCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const PopularCourses = ({ courses }) => {
   const topCourses = [...courses]
@@ -16,8 +17,10 @@ const PopularCourses = ({ courses }) => {
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {topCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+          {topCourses.map((course, index) => (
+            <ScrollReveal key={course.id} delay={index * 0.08}>
+              <CourseCard course={course} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

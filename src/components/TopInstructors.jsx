@@ -1,4 +1,5 @@
 import courses from "@/data/courses.json";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const instructors = Array.from(
   new Map(
@@ -26,21 +27,20 @@ const TopInstructors = () => {
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {instructors.map((instructor) => (
-            <div
-              key={instructor.name}
-              className="rounded-xl border border-base-200 bg-white p-6 shadow-sm"
-            >
-              <h3 className="text-xl font-bold text-base-content">
-                {instructor.name}
-              </h3>
-              <p className="mt-1 text-sm font-semibold text-purple-800">
-                {instructor.role}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-base-content/70">
-                {instructor.bio}
-              </p>
-            </div>
+          {instructors.map((instructor, index) => (
+            <ScrollReveal key={instructor.name} delay={index * 0.08}>
+              <div className="rounded-xl border border-base-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-base-content">
+                  {instructor.name}
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-purple-800">
+                  {instructor.role}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-base-content/70">
+                  {instructor.bio}
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
