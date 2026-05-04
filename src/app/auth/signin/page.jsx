@@ -46,6 +46,12 @@ export default function SignInPage({ searchParams }) {
     router.push(callbackUrl);
   };
 
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   return (
     <div className="flex flex-col my-8 sm:h-[90vh] justify-center items-center">
       <ScrollReveal className="w-full max-w-sm">
@@ -88,6 +94,13 @@ export default function SignInPage({ searchParams }) {
           </button>
           <button className="btn mt-1" type="reset">
             Reset
+          </button>
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn mt-1 bg-green-300 border-green-400"
+            type="reset"
+          >
+            Continue with Google
           </button>
           <div className="flex w-full text-sm text-center items-center gap-2">
             <p>Don't have an account?</p>
