@@ -1,6 +1,22 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import CourseCard from "@/components/CourseCard";
+import { FaTimes } from "react-icons/fa";
 
 const AllCourses = ({ courses }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredCourses = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+
+    if (!term) return courses;
+
+    return courses.filter((course) =>
+      course.title.toLowerCase().includes(term),
+    );
+  }, [courses, searchTerm]);
+
   return (
     <section className="px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl">
@@ -17,10 +33,41 @@ const AllCourses = ({ courses }) => {
           </p>
         </div>
 
+        <div className="mb-6">
+          <div className="inline-flex w-fit flex-col">
+            <label className="mb-2 text-sm font-medium">Search by title</label>
+            <div className="relative inline-block w-fit">
+              <input
+                type="text"
+                placeholder="Type a course title..."
+                className="input input-bordered w-[280px] max-w-full pr-10 sm:w-[320px]"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {searchTerm ? (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-base-content/50 transition hover:bg-base-200 hover:text-base-content"
+                  aria-label="Clear search"
+                >
+                  <FaTimes className="text-sm" />
+                </button>
+              ) : null}
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {courses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))
+          ) : (
+            <div className="col-span-full rounded-2xl border border-base-300 bg-base-100 p-8 text-center text-base-content/70">
+              No courses found for &quot;{searchTerm}&quot;.
+            </div>
+          )}
         </div>
       </div>
     </section>
